@@ -1,0 +1,256 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}T.T.G Network - Gestion École recherche des cours{% endblock %}
+{% block content %}
+<!-- Header Start -->
+  <div class="container-fluid bg-primary py-5 mb-5 page-header">
+    <div class="container py-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-10 text-center">
+                <h1 class="display-3 text-white animated slideInDown">Listes Enseignants</h1>
+                
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Header End -->
+
+<style>
+
+  h2::after {
+  content: '';
+  display: block;
+  width: 60%;
+  height: 4px;
+  background-color: #007BFF;
+  margin: 8px auto 0;
+  border-radius: 2px;
+}
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f8f9fa;
+ 
+  text-align: center;
+}
+
+table {
+  width: 90%;
+  margin: 0 auto;
+  border-collapse: collapse;
+  background-color: #fff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+thead {
+  background-color: #007BFF;
+  color: white;
+}
+
+th, td {
+  padding: 14px 18px;
+  text-align: center;
+  border-bottom: 1px solid #ddd;
+}
+
+tbody tr:hover {
+  background-color: #f1f1f1;
+}
+
+tr:last-child td {
+  border-bottom: none;
+}
+
+button {
+  margin: 0 4px;
+  padding: 8px 12px;
+  font-size: 14px;
+  border: none;
+  border-radius: 4px;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  opacity: 0.9;
+}
+
+button:nth-child(1) {
+  background-color: #17a2b8; /* Details */
+}
+
+button:nth-child(2) {
+  background-color: #ffc107; /* Modifier */
+}
+
+button:nth-child(3) {
+  background-color: #dc3545; /* Supprimer */
+}
+
+td[colspan="6"] {
+  text-align: center;
+  font-style: italic;
+  color: #777;
+  padding: 20px;
+  background-color: #f9f9f9;
+}
+
+</style>
+
+  
+  <ul>
+      <table class= "table-bordered">
+        <thead>
+          <th>Enseignants</th>
+          <th>Matiere et ses details</th>
+         
+        </thead>
+        {% for enseignement in enseignements %}
+        <tbody>
+            <td>{{ enseignement.formateur }}</td>
+            <td>{{ enseignement.matiere }}</td>
+            
+        </tbody>
+        <tfoot>
+          
+        </tfoot>
+        {% endfor %}
+      </table>
+  </ul>
+
+  <!-- Team Start -->
+  <div class="container-xxl py-5">
+    <div class="container">
+        <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+            <h6 class="section-title bg-white text-center text-primary px-3">Les Formateurs</h6>
+            <h1 class="mb-5">Les Enseignants</h1>
+        </div>
+        <div class="row g-4">
+            <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                <div class="team-item bg-light">
+                    <div class="overflow-hidden">
+                        <img class="img-fluid" src="{% static 'img/team-1.jpg' %}" alt="">
+                    </div>
+                    <div class="position-relative d-flex justify-content-center" style="margin-top: -23px;">
+                        <div class="bg-light d-flex justify-content-center pt-2 px-1">
+                            <a class="btn btn-sm-square btn-primary mx-1" href=""><i class="fab fa-facebook-f"></i></a>
+                            <a class="btn btn-sm-square btn-primary mx-1" href=""><i class="fab fa-twitter"></i></a>
+                            <a class="btn btn-sm-square btn-primary mx-1" href=""><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+                    <div class="text-center p-4">
+                        <h5 class="mb-0">Mr Emmanuel</h5>
+                        <small>Laravel</small>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+                <div class="team-item bg-light">
+                    <div class="overflow-hidden">
+                        <img class="img-fluid" src="{% static 'img/team-2.jpg' %}" alt="">
+                    </div>
+                    <div class="position-relative d-flex justify-content-center" style="margin-top: -23px;">
+                        <div class="bg-light d-flex justify-content-center pt-2 px-1">
+                            <a class="btn btn-sm-square btn-primary mx-1" href=""><i class="fab fa-facebook-f"></i></a>
+                            <a class="btn btn-sm-square btn-primary mx-1" href=""><i class="fab fa-twitter"></i></a>
+                            <a class="btn btn-sm-square btn-primary mx-1" href=""><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+                    <div class="text-center p-4">
+                        <h5 class="mb-0">Mm Francelle</h5>
+                        <small>Anglais</small>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
+                <div class="team-item bg-light">
+                    <div class="overflow-hidden">
+                        <img class="img-fluid" src="{% static 'img/team-3.jpg' %}" alt="">
+                    </div>
+                    <div class="position-relative d-flex justify-content-center" style="margin-top: -23px;">
+                        <div class="bg-light d-flex justify-content-center pt-2 px-1">
+                            <a class="btn btn-sm-square btn-primary mx-1" href=""><i class="fab fa-facebook-f"></i></a>
+                            <a class="btn btn-sm-square btn-primary mx-1" href=""><i class="fab fa-twitter"></i></a>
+                            <a class="btn btn-sm-square btn-primary mx-1" href=""><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+                    <div class="text-center p-4">
+                        <h5 class="mb-0">Mr Pambou</h5>
+                        <small>Base de données</small>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.7s">
+                <div class="team-item bg-light">
+                    <div class="overflow-hidden">
+                        <img class="img-fluid" src="{% static 'img/team-4.jpg' %}" alt="">
+                    </div>
+                    <div class="position-relative d-flex justify-content-center" style="margin-top: -23px;">
+                        <div class="bg-light d-flex justify-content-center pt-2 px-1">
+                            <a class="btn btn-sm-square btn-primary mx-1" href=""><i class="fab fa-facebook-f"></i></a>
+                            <a class="btn btn-sm-square btn-primary mx-1" href=""><i class="fab fa-twitter"></i></a>
+                            <a class="btn btn-sm-square btn-primary mx-1" href=""><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+                    <div class="text-center p-4">
+                        <h5 class="mb-0">Mm Emma</h5>
+                        <small>Development Web</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Team End -->
+
+
+<!-- Testimonial Start -->
+<div class="container-xxl py-5 wow fadeInUp" data-wow-delay="0.1s">
+    <div class="container">
+        <div class="text-center">
+            <h6 class="section-title bg-white text-center text-primary px-3">Testimonial</h6>
+            <h1 class="mb-5">Contact-us</h1>
+        </div>
+        <div class="owl-carousel testimonial-carousel position-relative">
+            <div class="testimonial-item text-center">
+                <img class="border rounded-circle p-2 mx-auto mb-3" src="{% static 'img/testimonial-1.jpg' %}" style="width: 80px; height: 80px;">
+                <h5 class="mb-0">Emmachou</h5>
+                <p>Docteur</p>
+                <div class="testimonial-text bg-light text-center p-4">
+                <p class="mb-0">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit diam amet diam et eos. Clita erat ipsum et lorem et sit.</p>
+                </div>
+            </div>
+            <div class="testimonial-item text-center">
+                <img class="border rounded-circle p-2 mx-auto mb-3" src="{% static 'img/testimonial-2.jpg' %}" style="width: 80px; height: 80px;">
+                <h5 class="mb-0">Raki Brown</h5>
+                <p>Developpeur web</p>
+                <div class="testimonial-text bg-light text-center p-4">
+                <p class="mb-0">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit diam amet diam et eos. Clita erat ipsum et lorem et sit.</p>
+                </div>
+            </div>
+            <div class="testimonial-item text-center">
+                <img class="border rounded-circle p-2 mx-auto mb-3" src="{% static 'img/testimonial-3.jpg' %}" style="width: 80px; height: 80px;">
+                <h5 class="mb-0">Dan Josué</h5>
+                <p>Informaticien</p>
+                <div class="testimonial-text bg-light text-center p-4">
+                <p class="mb-0">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit diam amet diam et eos. Clita erat ipsum et lorem et sit.</p>
+                </div>
+            </div>
+            <div class="testimonial-item text-center">
+                <img class="border rounded-circle p-2 mx-auto mb-3" src="{% static 'img/testimonial-4.jpg' %}" style="width: 80px; height: 80px;">
+                <h5 class="mb-0">Massiala Gerdrie</h5>
+                <p>Cusinière</p>
+                <div class="testimonial-text bg-light text-center p-4">
+                <p class="mb-0">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit diam amet diam et eos. Clita erat ipsum et lorem et sit.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Testimonial End -->
+    
+
+
+{% endblock %}

@@ -1,0 +1,240 @@
+<!-- templates/options.html -->
+{% extends "base.html" %}
+{% load static %}
+{% block title %}T.T.G Network - Gestion École Listes des preinscriptions{% endblock %}
+{% block content %}
+
+    <!-- Header Start -->
+    <div class="container-fluid bg-primary py-5 mb-5 page-header">
+      <div class="container py-5">
+          <div class="row justify-content-center">
+              <div class="col-lg-10 text-center">
+                  <h1 class="display-3 text-white animated slideInDown">Listes des Preinscriptions</h1>
+                  
+              </div>
+          </div>
+      </div>
+  </div>
+  <!-- Header End -->
+
+  <style>
+
+    h2::after {
+    content: '';
+    display: block;
+    width: 60%;
+    height: 4px;
+    background-color: #007BFF;
+    margin: 8px auto 0;
+    border-radius: 2px;
+  }
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f8f9fa;
+   
+    text-align: center;
+  }
+  
+  table {
+    width: 90%;
+    margin: 0 auto;
+    border-collapse: collapse;
+    background-color: #fff;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  
+  thead {
+    background-color: #007BFF;
+    color: white;
+  }
+  
+  th, td {
+    padding: 14px 18px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  tbody tr:hover {
+    background-color: #f1f1f1;
+  }
+  
+  tr:last-child td {
+    border-bottom: none;
+  }
+  
+  button {
+    margin: 0 4px;
+    padding: 8px 12px;
+    font-size: 14px;
+    border: none;
+    border-radius: 4px;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  button:hover {
+    opacity: 0.9;
+  }
+  
+  button:nth-child(1) {
+    background-color: #17a2b8; /* Details */
+  }
+  
+  button:nth-child(2) {
+    background-color: #ffc107; /* Modifier */
+  }
+  
+  button:nth-child(3) {
+    background-color: #dc3545; /* Supprimer */
+  }
+  
+  td[colspan="6"] {
+    text-align: center;
+    font-style: italic;
+    color: #777;
+    padding: 20px;
+    background-color: #f9f9f9;
+  }
+  
+  </style>
+  
+  
+    {% if messages %}
+        {% for message in messages %}
+        <p>{{ message }}</p>
+        {% endfor %}
+    {% endif %}
+
+  <ul>
+    <table class= "table-bordered">
+			<thead>
+			    <th>Nom</th>
+          <th>Email</th>
+          <th>Telephone</th>
+          
+          <th>Statut</th>
+          <th>Actions</th>
+			</thead>
+      {% for preinscription in preinscriptions %}
+			<tbody>
+				  <td>{{ preinscription.nom }}</td>
+          <td> {{ preinscription.email }}</td>
+          <td> {{ preinscription.telephone }}</td>
+          
+          <td> {{ preinscription.statut }}</td>
+          <td>
+            <a href="{% url 'valider_preinscription' preinscription.id %}"><button>Valider</button></a>
+           
+          </td>
+			</tbody>
+			<tfoot>
+		
+			</tfoot>
+      {% endfor %}
+		</table>
+  </ul>
+<br>
+<!-- Service Start -->
+<div class="container-xxl py-5">
+  <div class="container">
+      <div class="row g-4">
+          <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.1s">
+              <div class="service-item text-center pt-3">
+                  <div class="p-4">
+                      <i class="fa fa-3x fa-graduation-cap text-primary mb-4"></i>
+                      <h5 class="mb-3">Skilled Instructors</h5>
+                      <p>Diam elitr kasd sed at elitr sed ipsum justo dolor sed clita amet diam</p>
+                  </div>
+              </div>
+          </div>
+          <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.3s">
+              <div class="service-item text-center pt-3">
+                  <div class="p-4">
+                      <i class="fa fa-3x fa-globe text-primary mb-4"></i>
+                      <h5 class="mb-3">Online Classes</h5>
+                      <p>Diam elitr kasd sed at elitr sed ipsum justo dolor sed clita amet diam</p>
+                  </div>
+              </div>
+          </div>
+          <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.5s">
+              <div class="service-item text-center pt-3">
+                  <div class="p-4">
+                      <i class="fa fa-3x fa-home text-primary mb-4"></i>
+                      <h5 class="mb-3">Home Projects</h5>
+                      <p>Diam elitr kasd sed at elitr sed ipsum justo dolor sed clita amet diam</p>
+                  </div>
+              </div>
+          </div>
+          <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.7s">
+              <div class="service-item text-center pt-3">
+                  <div class="p-4">
+                      <i class="fa fa-3x fa-book-open text-primary mb-4"></i>
+                      <h5 class="mb-3">Book Library</h5>
+                      <p>Diam elitr kasd sed at elitr sed ipsum justo dolor sed clita amet diam</p>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+<!-- Service End -->
+
+    <!-- Categories Start -->
+    <div class="container-xxl py-5 category">
+        <div class="container">
+            <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+                <h6 class="section-title bg-white text-center text-primary px-3">Les Preinscriptions</h6>
+                <h1 class="mb-5">Les catégories des preinscriptions</h1>
+            </div>
+            <div class="row g-3">
+                <div class="col-lg-7 col-md-6">
+                    <div class="row g-3">
+                        <div class="col-lg-12 col-md-12 wow zoomIn" data-wow-delay="0.1s">
+                            <a class="position-relative d-block overflow-hidden" href="">
+                                <img class="img-fluid" src="{% static 'img/cat-1.jpg' %}" alt="">
+                                <div class="bg-white text-center position-absolute bottom-0 end-0 py-2 px-3" style="margin: 1px;">
+                                    <h5 class="m-0">Web Design</h5>
+                                    <small class="text-primary">49 Courses</small>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-lg-6 col-md-12 wow zoomIn" data-wow-delay="0.3s">
+                            <a class="position-relative d-block overflow-hidden" href="">
+                                <img class="img-fluid" src="{% static 'img/cat-2.jpg' %}" alt="">
+                                <div class="bg-white text-center position-absolute bottom-0 end-0 py-2 px-3" style="margin: 1px;">
+                                    <h5 class="m-0">Graphic Design</h5>
+                                    <small class="text-primary">49 Courses</small>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-lg-6 col-md-12 wow zoomIn" data-wow-delay="0.5s">
+                            <a class="position-relative d-block overflow-hidden" href="">
+                                <img class="img-fluid" src="{% static 'img/cat-3.jpg' %}" alt="">
+                                <div class="bg-white text-center position-absolute bottom-0 end-0 py-2 px-3" style="margin: 1px;">
+                                    <h5 class="m-0">Video Editing</h5>
+                                    <small class="text-primary">49 Courses</small>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-5 col-md-6 wow zoomIn" data-wow-delay="0.7s" style="min-height: 350px;">
+                    <a class="position-relative d-block h-100 overflow-hidden" href="">
+                        <img class="img-fluid position-absolute w-100 h-100" src="{% static 'img/cat-4.jpg' %}" alt="" style="object-fit: cover;">
+                        <div class="bg-white text-center position-absolute bottom-0 end-0 py-2 px-3" style="margin:  1px;">
+                            <h5 class="m-0">Online Marketing</h5>
+                            <small class="text-primary">49 Courses</small>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Categories Start -->
+
+
+<!-- About Start -->
+{% endblock %}

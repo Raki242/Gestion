@@ -1,0 +1,25 @@
+<!-- templates/preinscription.html -->
+{% extends "base.html" %}
+{% load static %}
+{% block title %}T.T.G Network - Gestion École Faire des preinscriptions{% endblock %}
+{% block content %}
+<!-- Header Start -->
+<div class="container-fluid bg-primary py-5 mb-5 page-header">
+  <div class="container py-5">
+      <div class="row justify-content-center">
+          <div class="col-lg-10 text-center">
+              <h1 class="display-3 text-white animated slideInDown">Preinscription</h1>
+              
+          </div>
+      </div>
+  </div>
+</div>
+<!-- Header End -->
+
+ 
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Soumettre</button>
+  </form>
+{% endblock %}

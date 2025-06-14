@@ -1,0 +1,212 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}T.T.G Network - Gestion École Listes des notes{% endblock %}
+{% block content %}
+<!-- Header Start -->
+<div class="container-fluid bg-primary py-5 mb-5 page-header">
+  <div class="container py-5">
+      <div class="row justify-content-center">
+          <div class="col-lg-10 text-center">
+              <h1 class="display-3 text-white animated slideInDown">Listes des Notes</h1>
+              
+          </div>
+      </div>
+  </div>
+</div>
+<!-- Header End -->
+
+<style>
+
+  h2::after {
+  content: '';
+  display: block;
+  width: 60%;
+  height: 4px;
+  background-color: #007BFF;
+  margin: 8px auto 0;
+  border-radius: 2px;
+}
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f8f9fa;
+ 
+  text-align: center;
+}
+
+table {
+  width: 90%;
+  margin: 0 auto;
+  border-collapse: collapse;
+  background-color: #fff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+thead {
+  background-color: #007BFF;
+  color: white;
+}
+
+th, td {
+  padding: 14px 18px;
+  text-align: center;
+  border-bottom: 1px solid #ddd;
+}
+
+tbody tr:hover {
+  background-color: #f1f1f1;
+}
+
+tr:last-child td {
+  border-bottom: none;
+}
+
+button {
+  margin: 0 4px;
+  padding: 8px 12px;
+  font-size: 14px;
+  border: none;
+  border-radius: 4px;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  opacity: 0.9;
+}
+
+button:nth-child(1) {
+  background-color: #17a2b8; /* Details */
+}
+
+button:nth-child(2) {
+  background-color: #ffc107; /* Modifier */
+}
+
+button:nth-child(3) {
+  background-color: #dc3545; /* Supprimer */
+}
+
+td[colspan="6"] {
+  text-align: center;
+  font-style: italic;
+  color: #777;
+  padding: 20px;
+  background-color: #f9f9f9;
+}
+
+</style>
+
+  
+  <ul>
+    <table class= "table-bordered">
+			<thead>
+			    <th>L'etudiant</th>
+          <th>Matiere</th>
+          <th>Valeur</th>
+          <th>Actions</th>
+			</thead>
+      {% for note in notes %}
+			<tbody>
+				  <td>{{ note.etudiant }}</td>
+          <td>{{ note.matiere }}</td>
+          <td>{{ note.valeur }}</td>
+          <td><a href="#"><button>Details</button></a></td>
+			</tbody>
+			<tfoot>
+		
+			</tfoot>
+      {% endfor %}
+		</table>
+  </ul>
+
+  
+    <!-- Testimonial Start -->
+    <div class="container-xxl py-5 wow fadeInUp" data-wow-delay="0.1s">
+      <div class="container">
+          <div class="text-center">
+              <h6 class="section-title bg-white text-center text-primary px-3">Testimonial</h6>
+              <h1 class="mb-5">Contact-us</h1>
+          </div>
+          <div class="owl-carousel testimonial-carousel position-relative">
+              <div class="testimonial-item text-center">
+                  <img class="border rounded-circle p-2 mx-auto mb-3" src="{% static 'img/testimonial-1.jpg' %}" style="width: 80px; height: 80px;">
+                  <h5 class="mb-0">Emmachou</h5>
+                  <p>Docteur</p>
+                  <div class="testimonial-text bg-light text-center p-4">
+                  <p class="mb-0">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit diam amet diam et eos. Clita erat ipsum et lorem et sit.</p>
+                  </div>
+              </div>
+              <div class="testimonial-item text-center">
+                  <img class="border rounded-circle p-2 mx-auto mb-3" src="{% static 'img/testimonial-2.jpg' %}" style="width: 80px; height: 80px;">
+                  <h5 class="mb-0">Raki Brown</h5>
+                  <p>Developpeur web</p>
+                  <div class="testimonial-text bg-light text-center p-4">
+                  <p class="mb-0">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit diam amet diam et eos. Clita erat ipsum et lorem et sit.</p>
+                  </div>
+              </div>
+              <div class="testimonial-item text-center">
+                  <img class="border rounded-circle p-2 mx-auto mb-3" src="{% static 'img/testimonial-3.jpg' %}" style="width: 80px; height: 80px;">
+                  <h5 class="mb-0">Dan Josué</h5>
+                  <p>Informaticien</p>
+                  <div class="testimonial-text bg-light text-center p-4">
+                  <p class="mb-0">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit diam amet diam et eos. Clita erat ipsum et lorem et sit.</p>
+                  </div>
+              </div>
+              <div class="testimonial-item text-center">
+                  <img class="border rounded-circle p-2 mx-auto mb-3" src="{% static 'img/testimonial-4.jpg' %}" style="width: 80px; height: 80px;">
+                  <h5 class="mb-0">Massiala Gerdrie</h5>
+                  <p>Cusinière</p>
+                  <div class="testimonial-text bg-light text-center p-4">
+                  <p class="mb-0">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit diam amet diam et eos. Clita erat ipsum et lorem et sit.</p>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+  <!-- Testimonial End -->
+
+  
+
+    <!-- About Start -->
+    <div class="container-xxl py-5">
+      <div class="container">
+          <div class="row g-5">
+              <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s" style="min-height: 400px;">
+                  <div class="position-relative h-100">
+                      <img class="img-fluid position-absolute w-100 h-100" src="{% static 'img/about.jpg' %}" alt="" style="object-fit: cover;">
+                  </div>
+              </div>
+              <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.3s">
+                  <h6 class="section-title bg-white text-start text-primary pe-3">About Us</h6>
+                  <h1 class="mb-4">Welcome to eLEARNING</h1>
+                  <p class="mb-4">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam amet diam et eos. Clita erat ipsum et lorem et sit.</p>
+                  <p class="mb-4">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam amet diam et eos. Clita erat ipsum et lorem et sit, sed stet lorem sit clita duo justo magna dolore erat amet</p>
+                  <div class="row gy-2 gx-4 mb-4">
+                      
+                      <div class="col-sm-6">
+                          <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>Online Classes</p>
+                      </div>
+                      <div class="col-sm-6">
+                          <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>International Certificate</p>
+                      </div>
+                      <div class="col-sm-6">
+                          <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>Skilled Instructors</p>
+                      </div>
+                      <div class="col-sm-6">
+                          <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>Online Classes</p>
+                      </div>
+                      <div class="col-sm-6">
+                          <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>International Certificate</p>
+                      </div>
+                  </div>
+                  <a class="btn btn-primary py-3 px-5 mt-2" href="">Read More</a>
+              </div>
+          </div>
+      </div>
+  </div>
+  <!-- About End -->
+
+{% endblock %}
